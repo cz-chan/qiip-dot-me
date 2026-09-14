@@ -1,22 +1,29 @@
 ---
 import { ClientRouter } from "astro:transitions";
 
-import "../../../styles/global.css";
-import "../../../styles/typo.css";
+import "@/styles/global.css";
+import "@/styles/typo.css";
 
 import sono700 from "../../../assets/fonts/sono-v12-latin-700.woff2";
 import sono400 from "../../../assets/fonts/sono-v12-latin-regular.woff2";
 import inter500 from "../../../assets/fonts/inter-v20-latin-500.woff2";
 
-import Favicons from "./Favicons.astro";
-import JsonLdOrganization from "./JsonLdOrganization.astro";
+import Favicons from "@/seo/Favicons.astro";
+import SiteSchema from "@/seo/SiteSchema.astro";
+
+interface Props {
+	robotsIndex?: "index" | "noindex";
+	robotsFollow?: "follow" | "nofollow";
+}
+
+const { robotsFollow = "follow", robotsIndex = "index" } = Astro.props;
 ---
 
 <head>
 	<ClientRouter />
 	<Favicons />
 
-	<JsonLdOrganization />
+	<SiteSchema />
 
 	<script is:inline>
 		const getTheme = () =>
@@ -62,7 +69,7 @@ import JsonLdOrganization from "./JsonLdOrganization.astro";
 	/>
 	<meta
 		name="robots"
-		content="index, follow"
+		content=`${robotsFollow}, ${robotsIndex}`
 	/>
 	<meta
 		name="viewport"
@@ -74,9 +81,27 @@ import JsonLdOrganization from "./JsonLdOrganization.astro";
 	/>
 
 	{/* Font preload — home critical fonts */}
-	<link rel="preload" as="font" type="font/woff2" crossorigin href={sono700} />
-	<link rel="preload" as="font" type="font/woff2" crossorigin href={sono400} />
-	<link rel="preload" as="font" type="font/woff2" crossorigin href={inter500} />
+	<link
+		rel="preload"
+		as="font"
+		type="font/woff2"
+		crossorigin
+		href={sono700}
+	/>
+	<link
+		rel="preload"
+		as="font"
+		type="font/woff2"
+		crossorigin
+		href={sono400}
+	/>
+	<link
+		rel="preload"
+		as="font"
+		type="font/woff2"
+		crossorigin
+		href={inter500}
+	/>
 
 	<link
 		rel="sitemap"
