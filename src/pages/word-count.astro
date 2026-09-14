@@ -1,16 +1,8 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import ToolLayout from "@/layouts/ToolLayout.astro";
 import MainWC from "@/features/wordCount/components/MainWC.astro";
-import ToolPageSEO from "@/seo/ToolPageSEO.astro";
-import { TOOLS_INFO } from "@/global/site-info.ts";
-
-const COUNTER = TOOLS_INFO.wc;
 ---
 
-<Layout>
-	<ToolPageSEO
-		slot="head"
-		tool={COUNTER}
-	/>
+<ToolLayout>
 	<MainWC />
-</Layout>
+</ToolLayout>

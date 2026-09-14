@@ -1,16 +1,8 @@
 ---
+import ToolLayout from "@/layouts/ToolLayout.astro";
 import MainUTM from "@/features/utms/components/MainUTM.astro";
-import Layout from "@/layouts/Layout.astro";
-import ToolPageSEO from "@/seo/ToolPageSEO.astro";
-import { TOOLS_INFO } from "@/global/site-info.ts";
-
-const UTM = TOOLS_INFO.utm;
 ---
 
-<Layout>
-	<ToolPageSEO
-		slot="head"
-		tool={UTM}
-	/>
+<ToolLayout>
 	<MainUTM />
-</Layout>
+</ToolLayout>
