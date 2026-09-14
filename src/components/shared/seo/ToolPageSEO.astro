@@ -1,16 +1,24 @@
 ---
-import PagesSEO from "./PagesSEO.astro";
-import JsonLdTool from "./JsonLdTool.astro";
-import JsonLdFAQ from "@/aeo/JsonLdFAQ.astro";
-import JsonLdHowTo from "@/aeo/JsonLdHowTo.astro";
-import type { TOOLS_INFO } from "@/global/site-info.ts";
+import { SITE_INFO, type TOOLS_INFO_TYPES } from "@/global/site-info.ts";
+import { getTool } from "@/components/layout/home/tools/tools.ts";
+
+import PagesSEO from "@/seo/PagesSEO.astro";
+import FaqSchema from "@/aeo/FaqSchema.astro";
+import ToolSchema from "@/seo/ToolSchema.astro";
+import HowToSchema from "@/aeo/HowToSchema.astro";
 
 interface Props {
-	tool: TOOLS_INFO;
+	tool: TOOLS_INFO_TYPES;
+	onAir: boolean;
 }
 
-const { tool } = Astro.props;
-const url = Astro.url.pathname;
+const { tool, onAir } = Astro.props;
+const { pathname } = Astro.url;
+
+const url = new URL(pathname, SITE_INFO.url).href;
+
+const currentTool = getTool(pathname);
+if (!currentTool) throw new Error(`Tool not found in tools.ts: ${pathname}`);
 ---
 
 <PagesSEO
@@ -19,12 +27,29 @@ const url = Astro.url.pathname;
 	ogType="article"
 	ogImage={tool.ogImage}
 	ogImageAlt={tool.ogImageAlt}
-	keywords={tool.keywords}
 />
-<JsonLdTool
-	name={tool.label}
-	description={tool.description}
-	url={url}
-/>
-{tool.faqs && <JsonLdFAQ faqs={tool.faqs} />}
-{tool.howTo && tool.howToTitle && <JsonLdHowTo name={tool.howToTitle} description={tool.description} steps={tool.howTo} />}
+{
+	onAir && (
+		<>
+			<ToolSchema
+				name={tool.label}
+				description={tool.description}
+				url={url}
+			/>
+			{tool.faqs && (
+				<FaqSchema
+					url={url}
+					faqs={tool.faqs}
+				/>
+			)}
+			{tool.howTo && tool.howToTitle && (
+				<HowToSchema
+					url={url}
+					name={tool.howToTitle}
+					description={tool.description}
+					steps={tool.howTo}
+				/>
+			)}
+		</>
+	)
+}
