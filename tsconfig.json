@@ -15,7 +15,9 @@
 			"@/utms/*": ["./src/features/utms/*"],
 			"@/qr/*": ["./src/features/qr/*"],
 			"@/wordCounter/*": ["./src/features/wordCount/*"],
-			"@/shortenUrls/*": ["./src/features/urlShortener/*"]
+			"@/shortenUrls/*": ["./src/features/urlShortener/*"],
+
+			"@/styles/*": ["./src/styles/*"]
 		},
 		"jsx": "react-jsx",
 		"jsxImportSource": "react"
