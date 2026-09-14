@@ -10,10 +10,15 @@ interface Props {
 	ogImage?: string;
 	ogImageAlt?: string;
 	ogType?: "website" | "article";
-	keywords?: string[];
 }
 
-const { pageTitle, pageDescription, ogImage, ogImageAlt, ogType = "website", keywords } = Astro.props;
+const {
+	pageTitle,
+	pageDescription,
+	ogImage,
+	ogImageAlt,
+	ogType = "website",
+} = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -21,8 +26,6 @@ const ogImageUrl = ogImage
 	? new URL(ogImage, Astro.site)
 	: new URL("./og-image.webp", Astro.site);
 const ogImageUrlAlt = ogImageAlt || pageTitle;
-
-// const keywords = processKeywords(pageKeywords).keywords;
 ---
 
 <title>{pageTitle}</title>
@@ -43,12 +46,6 @@ const ogImageUrlAlt = ogImageAlt || pageTitle;
 	rel="canonical"
 	href={canonicalURL}
 />
-{keywords && keywords.length > 0 && (
-	<meta
-		name="keywords"
-		content={keywords.join(", ")}
-	/>
-)}
 
 {/* Open Graph / Facebook / WhatsApp */}
 <meta
@@ -102,17 +99,6 @@ const ogImageUrlAlt = ogImageAlt || pageTitle;
 	property="og:type"
 	content={ogType}
 />
-<!-- {
-	keywords &&
-		keywords.map((keyword: string) => {
-			return (
-				<meta
-					property="article:tag"
-					content={keyword}
-				/>
-			);
-		})
-} -->
 
 {/* Twitter */}
 <meta
@@ -143,14 +129,3 @@ const ogImageUrlAlt = ogImageAlt || pageTitle;
 	name="twitter:creator"
 	content="@cz__chan"
 />
-
-{/* RSS auto-discovery */}
-{
-	/* <link
-  href="/rss.xml"
-  rel="alternate"
-  title={SITE_DEFAULT_CONFIG.title}
-  type="application/rss+xml"
-/>
-*/
-}
