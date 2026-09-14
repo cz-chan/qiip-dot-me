@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { SITE_INFO, TOOLS } from "@/global/site-info.ts";
+import { SITE_INFO, TOOLS_INFO } from "@/global/site-info.ts";
 
 const getLlmsTxt = (siteUrl: string) => `# qiip.me
 
@@ -8,10 +8,10 @@ const getLlmsTxt = (siteUrl: string) => `# qiip.me
 
 ## Tools
 
-- [UTM Builder](${siteUrl}/utm): ${TOOLS.utms.description}
-- [QR Code Generator](${siteUrl}/qr): ${TOOLS.qr.description}
-- [Word Counter](${siteUrl}/word-count): ${TOOLS.wc.description}
-- [URL Shortener](${siteUrl}/shorten-urls): ${TOOLS.su.description}
+- [UTM Builder](${siteUrl}/utm): ${TOOLS_INFO.utm.description}
+- [QR Code Generator](${siteUrl}/qr): ${TOOLS_INFO.qr.description}
+- [Word Counter](${siteUrl}/word-count): ${TOOLS_INFO.wc.description}
+- [URL Shortener](${siteUrl}/shorten-urls): ${TOOLS_INFO.su.description}
 
 ## About
 
