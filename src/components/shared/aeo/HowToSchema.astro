@@ -8,9 +8,10 @@ interface Props {
 	name: string;
 	description: string;
 	steps: HowToStep[];
+	url: string | URL;
 }
 
-const { name, description, steps } = Astro.props;
+const { name, description, steps, url } = Astro.props;
 
 const schema = {
 	"@context": "https://schema.org",
@@ -23,6 +24,7 @@ const schema = {
 		name: step.name,
 		text: step.text,
 	})),
+	about: { "@id": `${url}#app` },
 };
 ---
 

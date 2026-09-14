@@ -1,5 +1,5 @@
 ---
-// https://nextjs.org/docs/app/guides/json-ld
+// https://schema.org/WebApplication
 import { SITE_INFO } from "@/global/site-info.ts";
 
 interface Props {
@@ -10,19 +10,24 @@ interface Props {
 
 const { name, description, url } = Astro.props;
 
+const toolUrl = new URL(url, SITE_INFO.url).href;
+
 const schema = {
 	"@context": "https://schema.org",
-	"@type": "SoftwareApplication",
+	"@type": "WebApplication",
+	"@id": `${toolUrl}#app`,
 	name,
 	description,
-	url: new URL(url, SITE_INFO.url).toString(),
-	applicationCategory: "WebApplication",
+	url: toolUrl,
+	applicationCategory: "UtilitiesApplication",
 	operatingSystem: "Web",
 	offers: {
 		"@type": "Offer",
 		price: "0",
 		priceCurrency: "EUR",
 	},
+	isPartOf: { "@id": new URL("/#app", SITE_INFO.url).href },
+	creator: { "@id": "https://c12z.io/#person" },
 };
 ---
 

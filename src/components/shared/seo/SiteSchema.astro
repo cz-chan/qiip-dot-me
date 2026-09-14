@@ -1,0 +1,32 @@
+---
+// https://schema.org/WebApplication
+import { SITE_INFO } from "@/global/site-info.ts";
+
+const schema = {
+	"@context": "https://schema.org",
+	"@type": "WebApplication",
+	"@id": new URL("/#app", SITE_INFO.url).href,
+	name: "qiip",
+	url: SITE_INFO.url,
+	description: SITE_INFO.description,
+	applicationCategory: "UtilitiesApplication",
+	operatingSystem: "Web",
+	offers: {
+		"@type": "Offer",
+		price: "0",
+		priceCurrency: "EUR",
+	},
+	creator: {
+		"@type": "Person",
+		"@id": "https://c12z.io/#person",
+		name: "Chema Ferrández",
+		url: "https://c12z.io",
+	},
+};
+---
+
+<script
+	is:inline
+	type="application/ld+json"
+	set:html={JSON.stringify(schema)}
+/>
