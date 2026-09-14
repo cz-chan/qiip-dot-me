@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ToolPageSEO from "@/seo/ToolPageSEO.astro";
+import { TOOLS_INFO } from "@/global/site-info.ts";
+import { getTool } from "@/components/layout/home/tools/tools.ts";
+
+const { pathname } = Astro.url;
+const tool = getTool(pathname);
+
+if (!tool) throw new Error(`Tool not found in tools.ts: ${pathname}`);
+
+const { onAir, tag } = tool;
+const seo = TOOLS_INFO[tag.toolTag];
+
+if (!seo) throw new Error(`Tool SEO not found in site-info.ts: ${tag.toolTag}`);
+---
+
+<Layout robotsIndex={onAir ? "index" : "noindex"}>
+	<ToolPageSEO
+		slot="head"
+		tool={seo}
+		onAir={onAir}
+	/>
+	<slot />
+</Layout>
