@@ -1,6 +1,5 @@
 ---
 import { SITE_INFO, type TOOLS_INFO_TYPES } from "@/global/site-info.ts";
-import { getTool } from "@/components/layout/home/tools/tools.ts";
 
 import PagesSEO from "@/seo/PagesSEO.astro";
 import FaqSchema from "@/aeo/FaqSchema.astro";
@@ -16,9 +15,6 @@ const { tool, onAir } = Astro.props;
 const { pathname } = Astro.url;
 
 const url = new URL(pathname, SITE_INFO.url).href;
-
-const currentTool = getTool(pathname);
-if (!currentTool) throw new Error(`Tool not found in tools.ts: ${pathname}`);
 ---
 
 <PagesSEO
