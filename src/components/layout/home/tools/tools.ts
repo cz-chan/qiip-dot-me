@@ -34,6 +34,13 @@ interface Tool {
 	color: `var(--tool-${ToolTag["toolTag"]})`;
 }
 
+// for trailingSlash
+const normalize = (path: string) => path.replace(/\/$/, "") || "/";
+
+// helper to get a tool through href
+export const getTool = (href: string) =>
+	TOOLS.find((tool) => normalize(tool.href) === normalize(href));
+
 export const TOOLS: Tool[] = [
 	{
 		toolName: "UTM Builder",

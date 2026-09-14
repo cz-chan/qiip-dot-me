@@ -9,7 +9,7 @@ import { TOOLS } from "./tools.ts";
 >
 	{
 		TOOLS.map((tool) => {
-			const { toolName, desc, href, number, onAir, color } = tool;
+			const { toolName, desc, href, number, color, onAir } = tool;
 			const index = number.toString().padStart(2, "0");
 
 			return (
