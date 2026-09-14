@@ -51,7 +51,7 @@ const TOOLS_INTERFACE = z.object({
 	howTo: z.array(HOWTO_STEP_INTERFACE).optional(),
 });
 
-export type TOOLS_INFO = z.infer<typeof TOOLS_INTERFACE>;
+export type TOOLS_SEO_INFO = z.infer<typeof TOOLS_INTERFACE>;
 
 /**
  * qr: qr generator
@@ -59,7 +59,7 @@ export type TOOLS_INFO = z.infer<typeof TOOLS_INTERFACE>;
  * su: shorten urls
  * wc: word counter
  */
-export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
+export const TOOLS_INFO = z.record(z.string(), TOOLS_INTERFACE).parse({
 	qr: {
 		label: "QR Code Generator",
 		howToTitle: "How to generate a QR code",

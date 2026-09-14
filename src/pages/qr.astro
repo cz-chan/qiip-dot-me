@@ -2,12 +2,15 @@
 import Layout from "@/layouts/Layout.astro";
 import MainQR from "@/features/qr/components/MainQR.astro";
 import ToolPageSEO from "@/seo/ToolPageSEO.astro";
-import { TOOLS } from "@/global/site-info.ts";
+import { TOOLS_INFO } from "@/global/site-info.ts";
 
-const QR = TOOLS.qr;
+const QR = TOOLS_INFO.qr;
 ---
 
 <Layout>
-	<ToolPageSEO slot="head" tool={QR} />
+	<ToolPageSEO
+		slot="head"
+		tool={QR}
+	/>
 	<MainQR />
 </Layout>

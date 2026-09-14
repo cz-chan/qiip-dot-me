@@ -2,12 +2,15 @@
 import MainSort from "@/features/urlShortener/components/MainSort.astro";
 import Layout from "@/layouts/Layout.astro";
 import ToolPageSEO from "@/seo/ToolPageSEO.astro";
-import { TOOLS } from "@/global/site-info.ts";
+import { TOOLS_INFO } from "@/global/site-info.ts";
 
-const SHORTEN = TOOLS.su;
+const SHORTEN = TOOLS_INFO.su;
 ---
 
 <Layout>
-	<ToolPageSEO slot="head" tool={SHORTEN} />
+	<ToolPageSEO
+		slot="head"
+		tool={SHORTEN}
+	/>
 	<MainSort />
 </Layout>
