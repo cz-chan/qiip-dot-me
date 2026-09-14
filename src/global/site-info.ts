@@ -51,11 +51,11 @@ const TOOLS_INTERFACE = z.object({
 	howTo: z.array(HOWTO_STEP_INTERFACE).optional(),
 });
 
-export type TOOLS_SEO_INFO = z.infer<typeof TOOLS_INTERFACE>;
+export type TOOLS_INFO_TYPES = z.infer<typeof TOOLS_INTERFACE>;
 
 /**
  * qr: qr generator
- * utms: utm builder
+ * utm: utm builder
  * su: shorten urls
  * wc: word counter
  */
