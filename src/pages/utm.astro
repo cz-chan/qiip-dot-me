@@ -4,10 +4,13 @@ import Layout from "@/layouts/Layout.astro";
 import ToolPageSEO from "@/seo/ToolPageSEO.astro";
 import { TOOLS } from "@/global/site-info.ts";
 
-const UTMS = TOOLS.utms;
+const UTM = TOOLS.utm;
 ---
 
 <Layout>
-	<ToolPageSEO slot="head" tool={UTMS} />
+	<ToolPageSEO
+		slot="head"
+		tool={UTM}
+	/>
 	<MainUTM />
 </Layout>

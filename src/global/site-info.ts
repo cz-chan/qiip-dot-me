@@ -110,7 +110,7 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			},
 		],
 	},
-	utms: {
+	utm: {
 		label: "UTM Builder",
 		howToTitle: "How to use the UTM Builder",
 		title: "Free UTM Builder — Create Campaign Tracking Links | qiip.me",
@@ -191,44 +191,44 @@ export const TOOLS = z.record(z.string(), TOOLS_INTERFACE).parse({
 			"custom link shortener no redirect",
 			"shorten long url online free",
 		],
-		howTo: [
-			{
-				name: "Paste your URL",
-				text: "Paste the long URL you want to shorten into the input field.",
-			},
-			{
-				name: "Shorten the link",
-				text: "Click the shorten button to generate a short link instantly.",
-			},
-			{
-				name: "Copy and share",
-				text: "Copy the shortened URL and share it anywhere.",
-			},
-			{
-				name: "Track clicks",
-				text: "Monitor click analytics from your dashboard.",
-			},
-		],
-		faqs: [
-			{
-				question: "Is this URL shortener free?",
-				answer:
-					"Yes, completely free with no account or registration required.",
-			},
-			{
-				question: "Do shortened URLs expire?",
-				answer: "No, shortened links created here are permanent.",
-			},
-			{
-				question: "Are my shortened links private?",
-				answer:
-					"Yes. No third-party services are involved — your links stay under your own domain with no data leaks.",
-			},
-			{
-				question: "Can I track clicks on shortened URLs?",
-				answer: "Yes, click tracking is included with every shortened link.",
-			},
-		],
+		// howTo: [
+		// 	{
+		// 		name: "Paste your URL",
+		// 		text: "Paste the long URL you want to shorten into the input field.",
+		// 	},
+		// 	{
+		// 		name: "Shorten the link",
+		// 		text: "Click the shorten button to generate a short link instantly.",
+		// 	},
+		// 	{
+		// 		name: "Copy and share",
+		// 		text: "Copy the shortened URL and share it anywhere.",
+		// 	},
+		// 	{
+		// 		name: "Track clicks",
+		// 		text: "Monitor click analytics from your dashboard.",
+		// 	},
+		// ],
+		// faqs: [
+		// 	{
+		// 		question: "Is this URL shortener free?",
+		// 		answer:
+		// 			"Yes, completely free with no account or registration required.",
+		// 	},
+		// 	{
+		// 		question: "Do shortened URLs expire?",
+		// 		answer: "No, shortened links created here are permanent.",
+		// 	},
+		// 	{
+		// 		question: "Are my shortened links private?",
+		// 		answer:
+		// 			"Yes. No third-party services are involved — your links stay under your own domain with no data leaks.",
+		// 	},
+		// 	{
+		// 		question: "Can I track clicks on shortened URLs?",
+		// 		answer: "Yes, click tracking is included with every shortened link.",
+		// 	},
+		// ],
 	},
 	wc: {
 		label: "Word Counter",
