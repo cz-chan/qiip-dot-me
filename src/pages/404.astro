@@ -1,10 +1,10 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import ErrorLayout from "@/layouts/ErrorLayout.astro";
 import ErrorPage from "@/components/layout/errorPage/ErrorPage.astro";
 import ErrorPageSEO from "@/components/layout/errorPage/ErrorPageSEO.astro";
 ---
 
-<Layout>
+<ErrorLayout>
 	<ErrorPageSEO slot="head" />
 	<ErrorPage />
-</Layout>
+</ErrorLayout>

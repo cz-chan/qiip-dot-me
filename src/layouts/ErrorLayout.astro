@@ -1,0 +1,24 @@
+---
+import Header from "@/components/layout/header/Header.astro";
+import BaseHead from "@/seo/BaseHead.astro";
+
+import Footer from "@/components/layout/footer/Footer.astro";
+---
+
+<!doctype html>
+<html
+	lang="es"
+	data-theme="dark"
+>
+	<BaseHead robotsIndex="noindex">
+		<slot name="head" />
+	</BaseHead>
+	<body>
+		<Header />
+
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
