@@ -1,5 +1,5 @@
 ---
-import { TOOLS } from "../home/tools/tools";
+import { getTool } from "@/layout/home/tools/tools.ts";
 import styles from "./heroTool.module.css";
 
 interface Props {
@@ -7,11 +7,14 @@ interface Props {
 }
 
 const { href } = Astro.props;
-const tool = TOOLS.find((toolPath) => toolPath.href === href);
+const tool = getTool(href);
 const toolNumber = String(tool?.number).padStart(2, "0");
 ---
 
-<section class={styles.wrap} style={`--tool-color:${tool?.color}`}>
+<section
+	class={styles.wrap}
+	style={`--tool-color:${tool?.color}`}
+>
 	<h2 class={styles.eyebrow}>{toolNumber} — {tool?.toolName}</h2>
 	<h3 class={styles.title}>{tool?.titlePage}</h3>
 	<p class={styles.desc}>{tool?.desc}</p>
