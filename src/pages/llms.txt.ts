@@ -13,6 +13,8 @@ const getLlmsTxt = (siteUrl: string) => `# qiip.me
 - [Word Counter](${siteUrl}/word-count): ${TOOLS_INFO.wc.description}
 - [URL Shortener](${siteUrl}/shorten-urls): ${TOOLS_INFO.su.description}
 
+This last tool, URL Shortener, is under construction.
+
 ## About
 
 Built by ${SITE_INFO.author}. All tools are client-side only — no data collection, no backend.
